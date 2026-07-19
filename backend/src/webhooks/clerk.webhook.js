@@ -4,7 +4,7 @@ import { verifyWebhook } from "@clerk/express/webhooks";
 
 const router = express.Router();
 
-router.post(async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const siginingSecret = process.env.CLERK_WEBHOOK_SIGNING_SECRET;
         if (!siginingSecret) return res.status(503).json({ message: "Webhooks secret is not provided" });
