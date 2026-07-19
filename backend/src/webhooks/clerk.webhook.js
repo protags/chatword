@@ -15,7 +15,7 @@ router.post(async (req, res) => {
             body: payload
         })
 
-        const evt = await verifyWebhook(request, { siginingSecret });
+        const evt = await verifyWebhook(request, { signingSecret: siginingSecret });
 
         if (evt.type === "user.created" || evt.type === "user.updated") {
             const u = evt.data;
